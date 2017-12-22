@@ -1,0 +1,17 @@
+{% extends "SiteCoreBundle::layout_nocms.html.twig" %}
+
+{% block content %}
+{{ parent() }}
+
+<a href="{{path('jobsearch_feeds_feed_update', {'search': search})}}">update feed</a>
+
+{% for posting in postings %}
+<hr>
+<h3><a href="{{posting.link}}">
+{{posting.title | convert_encoding('UTF-8','HTML-ENTITIES')}}</a></h3>
+<i>{{posting.jobtype.name}} - {{posting.area.name}}</i><br>
+{{posting.date|date("m/d/Y h:ia")}}<br>
+{{posting.description | convert_encoding('UTF-8','HTML-ENTITIES')}}
+{% endfor %}
+
+{% endblock %}

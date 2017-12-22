@@ -1,0 +1,34 @@
+{% extends  '::base.html.twig' %}
+{% block title %}
+Jobsearch
+{% endblock %}
+
+{% block openbody %}
+<body bgcolor="9999ff">
+{% endblock %}
+
+{% block content %}
+<table width=100%>
+<tr>
+<td valign=top>
+{% if is_granted("ROLE_USER") %}
+        <a href="{{url('logout')}}">log out</a> | 
+        <a href="{{url('jobsearch_feeds_feed_list')}}">feed list</a><br>
+{% else %}
+        <a href="{{url('_register')}}">register<a> |
+        <a href="{{url('login')}}">log in</a><br>
+{% endif %}
+</td>
+<td align=right>
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="hidden" name="hosted_button_id" value="E6RBYUWVQF9AC">
+<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+</form>
+</td>
+</tr>
+</table>
+
+
+{% endblock %}

@@ -1,0 +1,5 @@
+{% if is_granted("ROLE_USER") %}
+[{"loggedIn":1}]
+{% else %}
+[{"loggedIn":0}]
+{% endif %}

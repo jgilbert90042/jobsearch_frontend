@@ -1,0 +1,15 @@
+{% extends "SiteCoreBundle::layout_nocms.html.twig" %}
+
+{% block content %}
+{{ parent() }}
+<h2>Welcome to Jobsearch</h2>
+
+<a href="{{url('jobsearch_feeds_feed_create')}}">Create new feed</a><br>
+<hr>
+<ul>
+{% for search in searches %}
+<li>{{search.name}} [ <a href="{{path('jobsearch_feeds_feed_update', {'search': search.id})}}">view</a> | edit | delete]<br>
+{% endfor %}
+</ul>
+<hr>
+{% endblock %}
